@@ -13,7 +13,7 @@ foreach ($tabbed_widgets_ids as $id) {
 	$settings = call_user_func_array($callback, array());
 	$number = $wp_registered_widgets[$id]['params'][0]['number'];
 
-	$title = strip_tags($settings[$number]['title']);
+	$title = apply_filters( 'widget_title', $settings[$number]['title'] ) ;
 	if ($title) echo "<li><a href=\"#$id\">$title</a></li>";
 }
 echo '</ul>';
